@@ -29,7 +29,7 @@ exports.createDept = async (req, res)=>{
 
 exports.getAllDept = async (req, res)=>{
     try {
-        const getAll = await departmentModel.find()
+        const getAll = await departmentModel.find().populate('courseId')
         res.status(200).json({
             message: `All department found and the total is: ${getAll.length}`,
             data: getAll
