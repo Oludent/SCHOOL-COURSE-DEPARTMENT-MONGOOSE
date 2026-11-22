@@ -49,7 +49,7 @@ exports.createCourse = async (req, res)=>{
 
 exports.getAllCourses = async (req, res)=>{
     try {
-        const courses = await courseModel.find()
+        const courses = await courseModel.find().populate('departmentId')
         res.status(200).json({
             message: `All courses found and are of this total: ${courses.length}`,
             data: courses
